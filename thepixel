@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find the Pixel</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            background: white;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+        #message {
+            position: absolute;
+            font-size: 2rem;
+            color: black;
+            transition: opacity 0.5s ease;
+        }
+        #target {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            background: red;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="message">FIND THE PIXEL</div>
+    <div id="target"></div>
+
+    <script>
+        // Disparition du message après 5 secondes
+        const message = document.getElementById('message');
+        setTimeout(() => {
+            message.style.opacity = 0;
+            setTimeout(() => message.style.display = 'none', 500); // Cache complètement
+        }, 5000);
+
+        // Gestion du clic sur le pixel
+        const target = document.getElementById('target');
+        target.addEventListener('click', () => {
+            alert('Bravo, tu as trouvé le pixel !');
+        });
+    </script>
+</body>
+</html>
